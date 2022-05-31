@@ -1,0 +1,148 @@
+
+\documentclass{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%TCIDATA{OutputFilter=LATEX.DLL}
+%TCIDATA{Version=5.50.0.2953}
+%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
+%TCIDATA{BibliographyScheme=Manual}
+%TCIDATA{Created=Tuesday, February 23, 2021 19:33:37}
+%TCIDATA{LastRevised=Tuesday, February 23, 2021 20:46:42}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
+%TCIDATA{CSTFile=40 LaTeX article.cst}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\input{tcilatex}
+
+\begin{document}
+
+
+$l_{c}$ Logitud al centro de masa
+
+$p=\left[ 
+\begin{array}{c}
+l_{c}\cos \theta  \\ 
+l_{c}\sin \theta 
+\end{array}%
+\right] --------------p=\left[ 
+\begin{array}{c}
+l_{c}\sin \theta  \\ 
+l_{c}\cos \theta 
+\end{array}%
+\right] $
+
+$v=\frac{d}{dt}p=\dot{p}=\left[ 
+\begin{array}{c}
+-l_{c}\dot{\theta}\sin \theta  \\ 
+l_{c}\dot{\theta}\cos \theta 
+\end{array}%
+\right] $
+
+$U=mgh=mgl_{c}\sin \theta $
+
+$K_{T}=\frac{1}{2}mv\cdot v=\frac{1}{2}mv^{T}v=\frac{1}{2}mvv^{T}=\frac{1}{2}%
+m\left[ 
+\begin{array}{c}
+-l_{c}\dot{\theta}\sin \theta  \\ 
+l_{c}\dot{\theta}\cos \theta 
+\end{array}%
+\right] \cdot \left[ 
+\begin{array}{c}
+-l_{c}\dot{\theta}\sin \theta  \\ 
+l_{c}\dot{\theta}\cos \theta 
+\end{array}%
+\right] =\frac{1}{2}m\left( l_{c}^{2}\dot{\theta}^{2}\sin ^{2}\theta
++l_{c}^{2}\dot{\theta}^{2}\cos ^{2}\theta \right) =\frac{1}{2}ml_{c}^{2}\dot{%
+\theta}^{2}\left( \sin ^{2}\theta +\cos ^{2}\theta \right) =\frac{1}{2}%
+ml_{c}^{2}\dot{\theta}^{2}$
+
+$K_{R}=\frac{1}{2}I\omega ^{2}=\frac{1}{2}I\dot{\theta}^{2}$
+
+$K=K_{T}+K_{R}=\frac{1}{2}ml_{c}^{2}\dot{\theta}^{2}+\frac{1}{2}I\dot{\theta}%
+^{2}$
+
+Lagrangiano
+
+$L=K-U=\frac{1}{2}ml_{c}^{2}\dot{\theta}^{2}+\frac{1}{2}I\dot{\theta}%
+^{2}-mgl_{c}\sin \theta $
+
+Rayleigh
+
+$D=\frac{1}{2}b\dot{\theta}^{2}$
+
+Ecuacion de movimiento de Euler-Lagrange
+
+$\frac{d}{dt}\left( \frac{\partial L}{\partial \dot{\theta}}\right) -\frac{%
+\partial L}{\partial \theta }+\frac{\partial D}{\partial \dot{\theta}}=\tau $
+
+$\frac{\partial L}{\partial \dot{\theta}}=ml_{c}^{2}\dot{\theta}+I\dot{\theta%
+}$
+
+$\frac{\partial L}{\partial \theta }=-mgl_{c}\cos \theta $
+
+$\frac{\partial D}{\partial \dot{\theta}}=b\dot{\theta}$
+
+$\frac{d}{dt}\left( \frac{\partial L}{\partial \dot{\theta}}\right)
+=ml_{c}^{2}\ddot{\theta}+I\ddot{\theta}$
+
+$ml_{c}^{2}\ddot{\theta}+I\ddot{\theta}+mgl_{c}\cos \theta +b\dot{\theta}%
+=\tau $
+
+$\ddot{\theta}=\frac{\tau -mgl_{c}\cos \theta -b\dot{\theta}}{ml_{c}^{2}+I}$
+
+Variables de estado $\theta $, $\dot{\theta}$
+
+Vector de estado $x=\left[ 
+\begin{array}{c}
+\theta  \\ 
+\dot{\theta}%
+\end{array}%
+\right] $
+
+Ecuacion de estado
+
+$\dot{x}=f\left( u,x,t\right) $
+
+$\dot{x}=\left[ 
+\begin{array}{c}
+\dot{\theta} \\ 
+\frac{u-mgl_{c}\cos \theta -b\dot{\theta}}{ml_{c}^{2}+I}%
+\end{array}%
+\right] $
+
+$x_{0}=\left[ 
+\begin{array}{c}
+\theta _{0} \\ 
+\dot{\theta}_{0}%
+\end{array}%
+\right] =\left[ 
+\begin{array}{c}
+-\frac{\pi }{2} \\ 
+0%
+\end{array}%
+\right] $
+
+$dt=5$ $(ms)$
+
+\end{document}

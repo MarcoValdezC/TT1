@@ -3,12 +3,30 @@ import matplotlib.animation as animation
 import numpy as np
 import matplotlib.pyplot as plt
 
+'''Función de límite de la señal de control'''
+def limcontro(u):
+    if(u>=0):
+        if(u>2.94):
+            ur=2.94
+        elif(u<=2.94):
+            ur=u
+        
+    else:
+        
+        if(u>=-2.94):
+            ur=u
+        else:
+            ur=-2.94
+    
+    return ur
+
 '''Time parameters'''
 dt = 0.005  # Tiempo de muestreo (5ms)
 ti = 0.0  # Tiempo inicial de la simulación (0s)
 tf = 10.0  # Tiempo inicial de la simulación (10s)
 n = int((tf - ti) / dt) + 1  # Número de muestras
-t = np.linspace(ti, tf, n)  # Vector con los intsntes de tiempo (en Matlab 0:0.005:10)
+# Vector con los intsntes de tiempo (en Matlab 0:0.005:10)
+t = np.linspace(ti, tf, n)  
 
 '''Dynamic parameters'''
 m = 0.5  # Masa del pendulo (kg)
@@ -25,28 +43,32 @@ x = np.zeros((n, 2))
 u = np.zeros((n, 1))
 
 '''Initial conditions'''
-x[0, 0] = np.pi/2  # Initial pendulum position (rad)
+x[0, 0] = 0  # Initial pendulum position (rad)
 x[0, 1] = 0  # Initial pendulum velocity (rad/s)
 ie_th = 0
+ise=0#Inicial Jise actual 
+ise_next=0#Inicial Jise siguiente
+iadu=0#Inicial Jiadu actual
+iadu_next=0#Inicial Jiadu siguiente 
 
 '''State equation'''
-xdot = [0, 0]
+xdot = [0, 0] #Ecuación de estado
 
 '''Dynamic simulation'''
 for i in range(n - 1):
     '''Current states'''
-    th = x[i, 0]
-    th_dot = x[i, 1]
+    th = x[i, 0] #Posición angular del péndulo
+    th_dot = x[i, 1] #Velocidad angular del péndulo
 
     '''Controller'''
-    e_th =np.pi-th
-    e_th_dot = 0 - th_dot
+    e_th =np.pi-th #Error de posicón
+    e_th_dot = 0 - th_dot #Error de velocidad
 
-    Kp = 0.5
-    Kd =0.3
-    Ki =0.2
+    Kp =6#9.00809903857079 #Ganancia proporcional
+    Kd =1#0.74331509706173#Ganancia derivativa 
+    Ki =2# Ganancia integral
 
-    u[i] = Kp * e_th + Kd * e_th_dot + Ki * ie_th
+    u[i] = limcontro(Kp * e_th + Kd * e_th_dot + Ki * ie_th) #Ley de control
 
     '''System dynamics'''
     xdot[0] = th_dot
@@ -56,10 +78,17 @@ for i in range(n - 1):
     x[i + 1, 0] = x[i, 0] + xdot[0] * dt
     x[i + 1, 1] = x[i, 1] + xdot[1] * dt
     ie_th = ie_th + e_th * dt
+    ise=ise_next+(e_th**2)*dt
+    iadu=iadu_next+ (abs(u[i]-u[i-1]))*dt
+       
+    ise_next=ise
+    iadu_next=iadu
 
 u[n - 1] = u[n - 2]
 
-print(x[:, 0])
+print(x[:, 0]) #Posición del péndulo
+print(ise) #Valor final de ISE
+print(iadu) #Valor final de IADU
 
 '''Plotting results'''
 plt.figure(figsize=(12, 10))
@@ -76,7 +105,7 @@ plt.ylabel('Pendulum speed')
 plt.xlabel('Time')
 
 plt.subplot(223)
-plt.plot(t, u[:, 0], 'r', lw=2)
+plt.plot(t, u, 'r', lw=2)
 plt.legend([r'$u$'], loc=1)
 plt.ylabel('Control signal')
 plt.xlabel('Time')
@@ -109,7 +138,6 @@ time_text = ax.text(0.05,0.9,'',transform=ax.transAxes)
 def init():
     line.set_data([],[])
     time_text.set_text('')
-    
     return line, time_text
 
 def animate(i):
@@ -122,12 +150,5 @@ def animate(i):
 ani_a = animation.FuncAnimation(fig, animate, \
          np.arange(1,len(t)), \
          interval=40,blit=False,init_func=init)
-
-# requires ffmpeg to save mp4 file
-#  available from https://ffmpeg.zeranoe.com/builds/
-#  add ffmpeg.exe to path such as C:\ffmpeg\bin\ in
-#  environmen-t variables
-#ani_a.save('Pendulum_Control.mp4',fps=30)
-
 plt.show()
 

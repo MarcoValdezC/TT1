@@ -1,0 +1,217 @@
+
+\documentclass{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%TCIDATA{OutputFilter=LATEX.DLL}
+%TCIDATA{Version=5.50.0.2953}
+%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
+%TCIDATA{BibliographyScheme=Manual}
+%TCIDATA{Created=Monday, March 01, 2021 20:10:57}
+%TCIDATA{LastRevised=Wednesday, March 03, 2021 19:30:28}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
+%TCIDATA{CSTFile=40 LaTeX article.cst}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\input{tcilatex}
+
+\begin{document}
+
+
+$\left( M+m\right) \ddot{x}+b\dot{x}+ml\ddot{\theta}\cos \theta -ml\dot{%
+\theta}^{2}\sin \theta =F$
+
+$\left( I+ml^{2}\right) \ddot{\theta}+mgl\sin \theta =-ml\ddot{x}\cos \theta 
+$
+
+$M(q)\ddot{q}+C(q,\dot{q})\dot{q}+G(q)=u$
+
+$M(q)\in R^{2\times 2}$ Matriz de inercia
+
+$C(q,\dot{q})\in R^{2\times 2}$ Matriz de Coriolis y de fuerzas centrifugas
+
+$G(q)\in R^{2}$ Vector de gravedad
+
+$u\in R^{2}$ Vector de fuerzas y pares generalizados
+
+$\left( M+m\right) \ddot{x}+b\dot{x}+ml\ddot{\theta}\cos \theta -ml\dot{%
+\theta}^{2}\sin \theta =F$
+
+$\left( I+ml^{2}\right) \ddot{\theta}+mgl\sin \theta +ml\ddot{x}\cos \theta
+=0$
+
+$\left( M+m\right) \ddot{x}+ml\ddot{\theta}\cos \theta +b\dot{x}-ml\dot{%
+\theta}^{2}\sin \theta =F$
+
+$ml\ddot{x}\cos \theta +\left( I+ml^{2}\right) \ddot{\theta}+mgl\sin \theta
+=0$
+
+$\left[ 
+\begin{array}{cc}
+M+m & ml\cos \theta  \\ 
+ml\cos \theta  & I+ml^{2}%
+\end{array}%
+\right] \left[ 
+\begin{array}{c}
+\ddot{x} \\ 
+\ddot{\theta}%
+\end{array}%
+\right] +\left[ 
+\begin{array}{cc}
+b & -ml\dot{\theta}\sin \theta  \\ 
+0 & 0%
+\end{array}%
+\right] \left[ 
+\begin{array}{c}
+\dot{x} \\ 
+\dot{\theta}%
+\end{array}%
+\right] +\left[ 
+\begin{array}{c}
+0 \\ 
+mgl\sin \theta 
+\end{array}%
+\right] =\left[ 
+\begin{array}{c}
+F \\ 
+0%
+\end{array}%
+\right] $
+
+$\left[ 
+\begin{array}{cc}
+M+m & ml\cos \theta  \\ 
+ml\cos \theta  & I+ml^{2}%
+\end{array}%
+\right] \left[ 
+\begin{array}{c}
+\ddot{x} \\ 
+\ddot{\theta}%
+\end{array}%
+\right] =\left[ 
+\begin{array}{c}
+F \\ 
+0%
+\end{array}%
+\right] -\left[ 
+\begin{array}{cc}
+b & -ml\dot{\theta}\sin \theta  \\ 
+0 & 0%
+\end{array}%
+\right] \left[ 
+\begin{array}{c}
+\dot{x} \\ 
+\dot{\theta}%
+\end{array}%
+\right] -\left[ 
+\begin{array}{c}
+0 \\ 
+mgl\sin \theta 
+\end{array}%
+\right] $
+
+$\left[ 
+\begin{array}{c}
+\ddot{x} \\ 
+\ddot{\theta}%
+\end{array}%
+\right] =\left[ 
+\begin{array}{cc}
+M+m & ml\cos \theta  \\ 
+ml\cos \theta  & I+ml^{2}%
+\end{array}%
+\right] ^{-1}\left( \left[ 
+\begin{array}{c}
+F \\ 
+0%
+\end{array}%
+\right] -\left[ 
+\begin{array}{cc}
+b & -ml\dot{\theta}\sin \theta  \\ 
+0 & 0%
+\end{array}%
+\right] \left[ 
+\begin{array}{c}
+\dot{x} \\ 
+\dot{\theta}%
+\end{array}%
+\right] -\left[ 
+\begin{array}{c}
+0 \\ 
+mgl\sin \theta 
+\end{array}%
+\right] \right) $
+
+$\ddot{q}=M^{-1}(q)\left[ u-C(q,\dot{q})\dot{q}-G(q)\right] $
+
+$z=[x,\theta ,\dot{x},\dot{\theta}]^{T}$
+
+$\dot{z}=f\left( t,u,z\right) =\left[ 
+\begin{array}{c}
+x \\ 
+\theta  \\ 
+\ddot{x} \\ 
+\ddot{\theta}%
+\end{array}%
+\right] =\left[ 
+\begin{array}{c}
+x \\ 
+\theta  \\ 
+M^{-1}(q)\left[ u-C(q,\dot{q})\dot{q}-G(q)\right] 
+\end{array}%
+\right] =\left[ 
+\begin{array}{c}
+x \\ 
+\theta  \\ 
+\left[ 
+\begin{array}{cc}
+M+m & ml\cos \theta  \\ 
+ml\cos \theta  & I+ml^{2}%
+\end{array}%
+\right] ^{-1}\left( \left[ 
+\begin{array}{c}
+F \\ 
+0%
+\end{array}%
+\right] -\left[ 
+\begin{array}{cc}
+b & -ml\dot{\theta}\sin \theta  \\ 
+0 & 0%
+\end{array}%
+\right] \left[ 
+\begin{array}{c}
+\dot{x} \\ 
+\dot{\theta}%
+\end{array}%
+\right] -\left[ 
+\begin{array}{c}
+0 \\ 
+mgl\sin \theta 
+\end{array}%
+\right] \right) 
+\end{array}%
+\right] $
+
+$z_{0}=[0.5,-\pi /2,0,0]^{T}$
+
+\end{document}
