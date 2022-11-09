@@ -86,10 +86,11 @@ for i in range(n - 1):
 
 u[n - 1] = u[n - 2]
 
-print(x[:, 0]) #Posición del péndulo
-print(ise) #Valor final de ISE
-print(iadu) #Valor final de IADU
-print('odio mi vida')
+# print(x[:, 0]) #Posición del péndulo
+# print(ise) #Valor final de ISE
+# print(iadu) #Valor final de IADU
+print(t,  x[:, 0])
+
 
 '''Plotting results'''
 plt.figure(figsize=(12, 10))
