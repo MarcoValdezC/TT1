@@ -3,6 +3,7 @@ import matplotlib.animation as animation
 import numpy as np
 import matplotlib.pyplot as plt
 import xlsxwriter
+import pandas as pd
 
 '''Función de límite de la señal de control'''
 def limcontro(u):
@@ -92,12 +93,26 @@ u[n - 1] = u[n - 2]
 # print(iadu) #Valor final de IADU
 #print(t,  x[:, 0])
 #datos= [[t],[x[:, 0]]]
+#------Exportar a excel----------
 archivo=xlsxwriter.Workbook('datos_pendulo.xlsx')
 hoja=archivo.add_worksheet()
+hoja.write("A1","Time")
+hoja.write("B1","Position")
+
 for item in range(len(t)):
-    hoja.write(item,0,t[item])
-    hoja.write(item,1,x[:, 0][item])
+    hoja.write(item+1,0,t[item])
+    hoja.write(item+1,1,x[:, 0][item])
 archivo.close()
+#-------------------
+# measure = pd.read_excel("datos_pendulo.xlsx")
+# measurex = list(measure[])
+# measurey = list(measure['Y values'])
+# plt.figure(figsize=(10,10))
+# plt.style.use('seaborn')
+# plt.scatter(measurex,measurey,marker="*",s=100,edgecolors="black",c="yellow")
+# plt.title("Excel sheet to Scatter Plot")
+# plt.show()
+
 
 
 
