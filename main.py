@@ -2,6 +2,7 @@ import os
 import matplotlib.animation as animation
 import numpy as np
 import matplotlib.pyplot as plt
+import xlsxwriter
 
 '''Función de límite de la señal de control'''
 def limcontro(u):
@@ -89,7 +90,15 @@ u[n - 1] = u[n - 2]
 # print(x[:, 0]) #Posición del péndulo
 # print(ise) #Valor final de ISE
 # print(iadu) #Valor final de IADU
-print(t,  x[:, 0])
+#print(t,  x[:, 0])
+#datos= [[t],[x[:, 0]]]
+archivo=xlsxwriter.Workbook('datos_pendulo7.xlsx')
+hoja=archivo.add_worksheet()
+for item in range(len(t)):
+    hoja.write(item,0,t[item])
+    hoja.write(item,1,x[:, 0][item])
+archivo.close()
+
 
 
 '''Plotting results'''
