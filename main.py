@@ -104,15 +104,6 @@ for item in range(len(t)):
     hoja.write(item+1,1,x[:, 0][item])
 archivo.close()
 #-------------------
-# measure = pd.read_excel("datos_pendulo.xlsx")
-# measurex = list(measure[])
-# measurey = list(measure['Y values'])
-# plt.figure(figsize=(10,10))
-# plt.style.use('seaborn')
-# plt.scatter(measurex,measurey,marker="*",s=100,edgecolors="black",c="yellow")
-# plt.title("Excel sheet to Scatter Plot")
-# plt.show()
-
 
 
 
@@ -177,4 +168,16 @@ ani_a = animation.FuncAnimation(fig, animate, \
          np.arange(1,len(t)), \
          interval=40,blit=False,init_func=init)
 plt.show()
+
+
+measure = pd.read_excel(r"C:\Users\alexa\Desktop\grafica-pendulo-simple\TT1-acortezc1601\datos_pendulo.xlsx")
+measurex = list(measure['Time'])
+measurey = list(measure['Position'])
+plt.figure(figsize=(10,10))
+plt.style.use('seaborn')
+plt.scatter(measurex,measurey,s=50,edgecolors="black",c="blue")
+plt.title("Excel sheet to Scatter Plot")
+plt.show()
+
+
 
