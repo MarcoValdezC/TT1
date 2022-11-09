@@ -92,7 +92,7 @@ u[n - 1] = u[n - 2]
 # print(iadu) #Valor final de IADU
 #print(t,  x[:, 0])
 #datos= [[t],[x[:, 0]]]
-archivo=xlsxwriter.Workbook('datos_pendulo7.xlsx')
+archivo=xlsxwriter.Workbook('datos_pendulo.xlsx')
 hoja=archivo.add_worksheet()
 for item in range(len(t)):
     hoja.write(item,0,t[item])
